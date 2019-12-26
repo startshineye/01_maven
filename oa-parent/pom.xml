@@ -30,12 +30,135 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+  
+  <dependencyManagement>
+      <dependencies>
+        <!-- spring依赖 -->
+  		<dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-core</artifactId>  
+            <version>3.2.8.RELEASE</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-webmvc</artifactId>  
+            <version>3.2.8.RELEASE</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-context</artifactId>  
+            <version>3.2.8.RELEASE</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-context-support</artifactId>  
+            <version>3.2.8.RELEASE</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-aop</artifactId>  
+            <version>3.2.8.RELEASE</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-aspects</artifactId>  
+            <version>3.2.8.RELEASE</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-tx</artifactId>  
+            <version>3.2.8.RELEASE</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-jdbc</artifactId>  
+            <version>3.2.8.RELEASE</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-web</artifactId>  
+            <version>3.2.8.RELEASE</version>  
+        </dependency>  
+  
+        <!--单元测试依赖 -->  
+        <dependency>  
+            <groupId>junit</groupId>  
+            <artifactId>junit</artifactId>  
+            <version>4.12</version>  
+            <scope>test</scope>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-test</artifactId>  
+            <version>3.2.8.RELEASE</version>  
+            <scope>test</scope>  
+        </dependency>  
+  
+       <!-- 日志依赖 -->
+        <dependency>  
+            <groupId>log4j</groupId>  
+            <artifactId>log4j</artifactId>  
+            <version>1.2.12</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.slf4j</groupId>  
+            <artifactId>slf4j-api</artifactId>  
+            <version>1.6.6</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.slf4j</groupId>  
+            <artifactId>slf4j-log4j12</artifactId>  
+            <version>1.6.6</version>  
+        </dependency>  
+  
+        <!--mybatis依赖 -->  
+        <dependency>  
+            <groupId>org.mybatis</groupId>  
+            <artifactId>mybatis</artifactId>  
+            <version>3.2.1</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.mybatis</groupId>  
+            <artifactId>mybatis-spring</artifactId>  
+            <version>1.2.0</version>  
+        </dependency>  
+  
+        <!-- mysql驱动包 -->  
+        <dependency>  
+            <groupId>mysql</groupId>  
+            <artifactId>mysql-connector-java</artifactId>  
+            <version>5.1.29</version>  
+        </dependency>
+	    <dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <version>4.12</version>
+	      <scope>test</scope>
+	    </dependency>
+      </dependencies>
+  </dependencyManagement>
+  
+  <build>
+     <pluginManagement>
+       <plugins>
+          <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+				   <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+				</configuration>
+			</plugin>
+       </plugins>
+     </pluginManagement>
+  </build>
 </project>
