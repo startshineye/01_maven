@@ -2,20 +2,17 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <groupId>com.yxm.oa</groupId>
   <artifactId>oa-flow</artifactId>
   <packaging>jar</packaging>
+  <version>1.0.0-SNAPSHOT</version>
   
-  <parent>
-     <groupId>com.yxm.oa</groupId>
-     <artifactId>oa-parent</artifactId>  
-     <version>1.0.0-SNAPSHOT</version>
-  </parent>
-
   <name>oa-flow</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <springframework.release.version>3.2.8.RELEASE</springframework.release.version>
   </properties>
   
    <distributionManagement>
@@ -36,6 +33,7 @@
   		<dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-core</artifactId>  
+            <ver
         </dependency>  
         <dependency>  
             <groupId>org.springframework</groupId>  
@@ -111,6 +109,11 @@
             <groupId>mysql</groupId>  
             <artifactId>mysql-connector-java</artifactId>  
         </dependency>
+	    <dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <scope>test</scope>
+	    </dependency>
   </dependencies>
   
    <build>
