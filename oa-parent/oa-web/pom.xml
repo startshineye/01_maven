@@ -166,6 +166,29 @@
 						</webAppConfig>
 					</configuration>
               </plugin>
+              
+              <!-- 自动化部署插件 -->
+              <plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.0</version>
+				<configuration>
+					<container>
+						<containerId>tomcat6x</containerId>
+						<type>remote</type>
+					</container>
+					<configuration>
+						<type>runtime</type>
+						<properties>
+							<cargo.remote.username>admin</cargo.remote.username>
+							<cargo.remote.password>admin</cargo.remote.password>
+							<cargo.tomcat.manager.url>http://localhost:8080/manager</cargo.tomcat.manager.url>
+							<cargo.servlet.port>8080</cargo.servlet.port>
+						</properties>
+					</configuration>
+				</configuration>
+			</plugin>
+              
 	       </plugins>
   </build>
 </project>
