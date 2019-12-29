@@ -180,10 +180,10 @@
 					<configuration>
 						<type>runtime</type>
 						<properties>
-							<cargo.remote.username>admin</cargo.remote.username>
-							<cargo.remote.password>admin</cargo.remote.password>
-							<cargo.tomcat.manager.url>http://localhost:8080/manager</cargo.tomcat.manager.url>
-							<cargo.servlet.port>8080</cargo.servlet.port>
+							<cargo.remote.username>${cargo.remote.username}</cargo.remote.username>
+							<cargo.remote.password>${cargo.remote.password}</cargo.remote.password>
+							<cargo.tomcat.manager.url>${cargo.tomcat.manager.url}</cargo.tomcat.manager.url>
+							<cargo.servlet.port>${cargo.servlet.port}</cargo.servlet.port>
 						</properties>
 					</configuration>
 				</configuration>
@@ -191,4 +191,41 @@
               
 	       </plugins>
   </build>
+  
+  <!-- 使用maven的多profiles进行不同环境的配置 -->  
+  <profiles>
+     <!-- 本地开发环境 -->
+      <profile>
+        <id>dev</id>
+        <properties>
+            <cargo.remote.username>admin</cargo.remote.username>
+			<cargo.remote.password>admin</cargo.remote.password>
+			<cargo.tomcat.manager.url>http://localhost:8080/manager</cargo.tomcat.manager.url>
+			<cargo.servlet.port>8080</cargo.servlet.port>
+        </properties>
+      </profile>
+        <!-- 测试环境 -->
+      <profile>
+        <id>test</id>
+        <properties>
+            <cargo.remote.username>admin</cargo.remote.username>
+			<cargo.remote.password>admin</cargo.remote.password>
+			<cargo.tomcat.manager.url>http://localhost:8080/manager-test</cargo.tomcat.manager.url>
+			<cargo.servlet.port>8080</cargo.servlet.port>
+        </properties>
+      </profile>
+        <!-- 生产环境 -->
+      <profile>
+        <id>prod</id>
+        <properties>
+            <cargo.remote.username>admin</cargo.remote.username>
+			<cargo.remote.password>admin</cargo.remote.password>
+			<cargo.tomcat.manager.url>http://localhost:8080/manager-prod</cargo.tomcat.manager.url>
+			<cargo.servlet.port>8080</cargo.servlet.port>
+        </properties>
+      </profile>
+  </profiles>
+  
+  
+  
 </project>
